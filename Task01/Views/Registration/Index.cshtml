@@ -1,0 +1,49 @@
+﻿@model Task01.Models.RegistrationFormModel
+
+@{
+    ViewData["Title"] = "Реєстрація на консультацію";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label asp-for="FirstName">Ім'я:</label>
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="LastName">Прізвище:</label>
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="DesiredConsultationDate">Бажана дата консультації:</label>
+        <input asp-for="DesiredConsultationDate" />
+        <span asp-validation-for="DesiredConsultationDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Product">Продукт:</label>
+        <select asp-for="Product">
+            <option value="">--Оберіть продукт--</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="C#">C#</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="Основи">Основи</option>
+        </select>
+        <span asp-validation-for="Product" class="text-danger"></span>
+    </div>
+    <button type="submit">Зареєструватися</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
